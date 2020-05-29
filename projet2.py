@@ -112,8 +112,6 @@ def phi(Tmax,n,eps,phi2,dt,f,w,pmin,pmax):
     phi1 = np.linspace(0,100,100)
     l=[]
     for p in phi1:
-        print(p)
-        #l.append(np.linalg.norm(EtudeStat(Tmax,n,eps,p,phi2,dt,f,30,w,pmin,pmax),2))
         l.append(simulation(Tmax,n,eps,p,phi2,dt,2,f,w,pmin,pmax)[2])
     plt.plot(phi1,l)
     plt.show()
@@ -124,11 +122,9 @@ def EtudeN(Tmax,eps,phi1,phi2,dt,f,w,pmin,pmax):
     n = [i for i in range(1,10000)]
     for p in n:
         s = simulation(Tmax,p,eps,phi1,phi2,dt,2,f,w,pmin,pmax)[1]
-        #print("n =", p, " : ", s)
-        print(s)
         plt.axis([pmin,pmax,pmin,pmax])
         plt.scatter(s[0],s[1])
-        plt.pause(0.01)
+        plt.pause(0.1)
     plt.show()
 
 
