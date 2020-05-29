@@ -52,8 +52,6 @@ def initialisation(n,dim,a,b):
     for i in range(n):
         Points.append(np.random.uniform(low=a, high=b, size=(dim)))
         Vpoints.append(np.zeros(dim))
-        #plt.scatter(Points[i][0], Points[i][1])
-    #plt.show()
     return Points, Vpoints
 
 
@@ -91,14 +89,10 @@ def simulation(Tmax,n,eps, phi1, phi2,dt, dim,f,w,pmin,pmax):
         t+=1
     return Point, gb,t
 
-#p = simulation(1000,10,0.01,1,1,0.1,2,f)
-#print(p)
-
 def limite(Point,pmin,pmax):
     # Tous les points sont compris entre pmin et pmax
     for k in range(len(Point)):
         Point[k] = max(pmin,min(Point[k],pmax))
-    #print(Point)
     return Point
 
 def affichage(Tmax,n,eps, phi1, phi2,dt, f,w,pmin,pmax):
@@ -147,5 +141,5 @@ def EtudeStat(Tmax,n,eps, phi1, phi2,dt,f, N,w,pmin,pmax):
 #print(simulation(500,1000,0.001,1,1,0.1,4,f,0.9,-10,10)[1])
 #affichage(500,100,0.001,1,1,0.1,f,0.9,-10,10)
 #phi(250,500,0.01,0.5,0.1,f,0.9,-10,10)
-#EtudeN(100,0.01,1,1,0.1,f,0.5)
+#EtudeN(100,0.01,1,1,0.1,f,0.5,-10,10)
 #print(EtudeStat(100,50,0.01,1,1,1,f,100,0.9,-10,10))
