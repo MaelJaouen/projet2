@@ -102,12 +102,12 @@ def limite(Point,pmin,pmax):
     return Point
 
 def affichage(Tmax,n,eps, phi1, phi2,dt, f,w,pmin,pmax):
-    p, gb = simulation(Tmax,n,eps, phi1, phi2,dt, 2,f,w,pmin,pmax)
+    p, gb , t = simulation(Tmax,n,eps, phi1, phi2,dt, 2,f,w,pmin,pmax)
     print(gb)
     for point in p:
         for i in point:
             plt.scatter(i[0], i[1]) #placer points
-        plt.axis([-pmax,pmax,-pmax,pmax])
+        plt.axis([pmin,pmax,pmin,pmax])
         plt.pause(0.1) # pause avec duree en secondes
         plt.clf()
     plt.show()
@@ -124,19 +124,6 @@ def phi(Tmax,n,eps,phi2,dt,f,w,pmin,pmax):
     plt.plot(phi1,l)
     plt.show()
 
-'''
-def phi(Tmax,n,eps,phi2,dt,f,w,pmin,pmax):
-    # Variation de phi2 entre 0 et 1
-    phi1 = np.linspace(0,1,100)
-    for p in phi1:
-        s = simulation(Tmax,n,eps,p,phi2,dt,2,f,w,pmin,pmax)[1]
-        #print("phi2 =", p, " : ", s)
-        plt.axis([-2,2,-2,2])
-        plt.scatter(s[0],s[1])
-        plt.pause(0.01)
-    plt.show()
-    '''
-
 
 def EtudeN(Tmax,eps,phi1,phi2,dt,f,w,pmin,pmax):
     # Variation de phi2 entre 0 et 1
@@ -145,7 +132,7 @@ def EtudeN(Tmax,eps,phi1,phi2,dt,f,w,pmin,pmax):
         s = simulation(Tmax,p,eps,phi1,phi2,dt,2,f,w,pmin,pmax)[1]
         #print("n =", p, " : ", s)
         print(s)
-        plt.axis([-10,10,10,10])
+        plt.axis([pmin,pmax,pmin,pmax])
         plt.scatter(s[0],s[1])
         plt.pause(0.01)
     plt.show()
